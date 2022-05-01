@@ -121,10 +121,10 @@ function err(val)
 end
 
 -- ydLua的api
-JassCommon = require "jass.common"
-JassGlobals = require "jass.globals"
-JassSlk = require "jass.slk"
-JassJapi = require "jass.japi"
+-- JassCommon = require "jass.common"
+-- JassGlobals = require "jass.globals"
+-- JassSlk = require "jass.slk"
+-- JassJapi = require "jass.japi"
 
 print("Hello MyLua--------我的lua环境")
 -- local heroTable = {name = "小熊",attack = 300}
@@ -134,4 +134,21 @@ print("Hello MyLua--------我的lua环境")
 -- dump(JassCommon,"JassCommon")
 -- dump(JassGlobals,"JassGlobals")
 -- dump(JassSlk,"JassSlk")
-dump(JassJapi,"JassJapi")
+-- dump(JassJapi,"JassJapi")
+
+
+-- _F(unction)
+require "ydlua.common"
+-- _C(onst)
+require "ydlua.const"
+-- _J(Api)
+require "ydlua.japi"
+-- _A(LL)
+_A = require "jass.globals"
+-- _S(LK)
+_S = require "jass.slk"
+
+
+-- dump(_F,"_F")
+
+
