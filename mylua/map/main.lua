@@ -152,3 +152,6 @@ _S = require "jass.slk"
 -- dump(_F,"_F")
 
 
+require "demo.player"
+SetPlayerState()
+getPlayerState()
