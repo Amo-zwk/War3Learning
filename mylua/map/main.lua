@@ -4,6 +4,8 @@ DEBUGGING = true
 JassRuntime = require "jass.runtime"
 JassRuntime.console = true
 JassRuntime.sleep = false
+JassRuntime.debug = 4279
+
 JassRuntime.error_handle = function(msg)
     print("========lua-err========")
     print(tostring(msg))
@@ -120,6 +122,15 @@ function err(val)
     print("=========================")
 end
 
+-- 字符串转id
+function char2id (idChar)
+    if (idChar == nil or type(idChar) ~= "string") then
+        stack();
+        return
+    end
+    return ('>I4'):unpack(idChar)
+end
+
 -- ydLua的api
 -- JassCommon = require "jass.common"
 -- JassGlobals = require "jass.globals"
@@ -152,6 +163,12 @@ _S = require "jass.slk"
 -- dump(_F,"_F")
 
 
-require "demo.player"
-SetPlayerState()
-getPlayerState()
+-- require "demo.player"
+-- SetPlayerState()
+-- getPlayerState()
+
+
+require "demo.unit"
+
+-- UnitDemo1();
+UnitDemo2()
