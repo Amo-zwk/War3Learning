@@ -171,4 +171,17 @@ _S = require "jass.slk"
 require "demo.unit"
 
 -- UnitDemo1();
-UnitDemo2()
+-- UnitDemo2()
+
+require "demo.item"
+-- itemDemo1();
+-- itemDemo2();
+-- itemDemo3();
+-- itemDemo4()
+-- itemDemo5();
+
+
+require "demo.ability"
+-- abilitDemo1();
+-- abilitDemo2();
+abilitDemo3();
