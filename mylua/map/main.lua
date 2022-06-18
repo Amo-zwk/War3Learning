@@ -46,7 +46,7 @@ end
 --- 输出详尽内容
 ---@param value any 输出的table
 ---@param description string 调试信息格式
----@param nesting number 输出时的嵌套层级，默认为 10
+---@param nesting number | nil 输出时的嵌套层级，默认为 10
 function dump(value, description, nesting)
     if type(nesting) ~= "number" then nesting = 10 end
     local lookup = {}
@@ -107,6 +107,14 @@ function dump(value, description, nesting)
     _dump(value, description, " ", 1)
     str = str .. "\n" .. table.concat(result, "\n")
     print(str)
+end
+
+function echo(player,msg)
+    _F.DisplayTimedTextToPlayer(
+        player,
+        0,0,60,
+        msg
+    )
 end
 
 --- 错误调试
@@ -184,4 +192,12 @@ require "demo.item"
 require "demo.ability"
 -- abilitDemo1();
 -- abilitDemo2();
-abilitDemo3();
+-- abilitDemo3();
+
+
+require "demo.trigger"
+-- triggerDemo1()
+-- triggerDemo2()
+-- triggerDemo3()
+-- triggerDemo4()
+triggerDemo5()
