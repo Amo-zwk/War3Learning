@@ -8,7 +8,13 @@ local toInt = function(value, def)
     def = def or 0
     return math.floor(value or def) or def
 end
-
+function math.round(decimal, n)
+    n = math.floor(n or 2)
+    if (n < 1) then
+        return math.floor(decimal)
+    end
+    return tonumber(string.format('%.' .. n .. 'f', decimal))
+end
 local formatter = {
     DzAPI_Map_GetMapConfig = function(params)
         params[1] = tostring(params[1])

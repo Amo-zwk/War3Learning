@@ -200,4 +200,12 @@ require "demo.trigger"
 -- triggerDemo2()
 -- triggerDemo3()
 -- triggerDemo4()
-triggerDemo5()
+-- triggerDemo5()
+
+
+require "demo.ui"
+-- uiDemo1()
+-- uiDemo2()
+-- uiDemo3()
+-- uiDemo4()
+uiDemo5()

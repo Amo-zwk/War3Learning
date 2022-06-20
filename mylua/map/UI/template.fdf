@@ -1,0 +1,225 @@
+/**
+    @Backdrop @Carlos
+ */
+//创建一个平铺的背景不带边框 宽100 高50
+Frame "BACKDROP" "Demo_NoneBack" 
+{
+    Width 0.0625,
+    Height 0.03125,
+
+    BackdropTileBackground,
+    BackdropBackground "ReplaceableTextures\TeamColor\TeamColor04.blp",
+    BackdropBlendAll,
+}
+
+//创建一个固定大小的背景 宽64 高64
+Frame "BACKDROP" "Demo_SizeBack" 
+{
+    Width 0.04,
+    Height 0.04,
+
+    BackdropBackground "ReplaceableTextures\CommandButtons\BTNOrbOfDarkness.blp",
+    BackdropBlendAll,
+}
+
+//创建一个带边框的背景 宽100 高50
+Frame "BACKDROP" "Demo_BorderBack" 
+{
+    Width 0.0745,
+    Height 0.04325,
+
+    BackdropTileBackground,
+    BackdropBackground  "UI\Widgets\ToolTips\Human\human-tooltip-background.blp",
+    BackdropCornerFlags "UL|UR|BL|BR|T|L|B|R",
+    BackdropCornerSize  0.012,
+    BackdropBackgroundSize  0.032,
+    BackdropBackgroundInsets 0.004f 0.004f 0.004f 0.004f,
+    BackdropEdgeFile  "UI\Widgets\ToolTips\Human\human-tooltip-border.blp",
+    BackdropBlendAll,
+}
+//创建一个普通技能按钮 带有悬停高亮,按下,禁用,选中状态 宽64 高64 
+Frame "BUTTON" "Demo_Button"
+{
+    Width 0.04,
+    Height 0.04,
+    //设置样式 悬停高亮                 可获取鼠标焦点 HIGHLTGHTONFOCUS
+	ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+
+    //设置正常状态背景
+    ControlBackdrop "Demo_ButtonBack",
+    Frame "BACKDROP" "Demo_ButtonBack"
+    {
+        BackdropBackground  "ReplaceableTextures\CommandButtons\BTN3M1.blp",
+        BackdropBlendAll,
+    }
+    //设置禁用状态下背景
+    ControlDisabledBackdrop "Demo_ButtonDisBack",
+    Frame "BACKDROP" "Demo_ButtonDisBack" 
+    {
+        BackdropBackground  "ReplaceableTextures\PassiveButtons\PASBTNEnvenomedSpear.blp",
+        BackdropBlendAll,
+    }
+    //设置按下状态下背景
+    ControlPushedBackdrop "Demo_ButtonPushedBack",
+	Frame "Backdrop" "Demo_ButtonPushedBack" {
+        BackdropBackground  "ReplaceableTextures\CommandButtonsDisabled\DISBTN3M1.blp",
+        BackdropBlendAll,
+    }
+    //悬停鼠标高亮
+	ControlMouseOverHighlight "Demo_ButtonHig",
+	Frame "HIGHLIGHT" "Demo_ButtonHig" {
+        HighlightType "FILETEXTURE",
+        HighlightAlphaFile "UI\Widgets\EscMenu\Human\quest-button-highlight.blp",
+        HighlightAlphaMode "ADD",
+        /*LayerStyle "IGNORETRACKEVENTS", 用rgba创建一个颜色高亮蒙版
+        HighlightColor 0.0 0.0 1.0 0.1,
+        HighlightType "SHADE",*/
+    }
+    /*//鼠标焦点
+	ControlFocusHighlight "Demo_ButtonFocusHig",
+	Frame "HIGHLIGHT" "Demo_ButtonFocusHig"{
+        HighlightType "FILETEXTURE",
+        HighlightAlphaFile "UI\Widgets\Glues\GlueScreen-CampaignButton-KeyboardHighlight.blp",    
+        HighlightAlphaMode "ADD",
+    }*/
+    /*ButtonText "Demo_ButtonText",
+	Frame "TEXT" "Demo_ButtonText"{
+        DecorateFileNames,
+        FrameFont "MasterFont", 0.015, "",
+        FontJustificationH JUSTIFYLEFT,
+        FontJustificationV JUSTIFYMIDDLE,    
+        FontFlags "FIXEDSIZE",
+        FontColor 1.0 1.0 1.0 1.0,
+        FontHighlightColor 1.0 1.0 1.0 1.0,
+        FontDisabledColor 0.2 0.2 0.2 1.0,
+        FontShadowColor 0.0 0.0 0.0 0.9,	
+        FontShadowOffset 0.001 -0.001,	
+        Text "1",
+    }*/
+
+}
+//创建一个文本居右下按钮 带有悬停高亮,按下,禁用 宽64 高64
+Frame "TEXTBUTTON" "Demo_TextButton"
+{
+    Width 0.04,
+    Height 0.04,
+
+    //设置样式 悬停高亮                 可获取鼠标焦点 HIGHLTGHTONFOCUS
+	ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+
+    //设置正常状态背景
+    ControlBackdrop "Demo_ButtonBack",
+    Frame "BACKDROP" "Demo_ButtonBack"
+    {
+        BackdropBackground  "ReplaceableTextures\CommandButtons\BTN3M1.blp",
+        BackdropBlendAll,
+    }
+    //设置禁用状态下背景
+    ControlDisabledBackdrop "Demo_ButtonDisBack",
+    Frame "BACKDROP" "Demo_ButtonDisBack" 
+    {
+        BackdropBackground  "ReplaceableTextures\PassiveButtons\PASBTNEnvenomedSpear.blp",
+        BackdropBlendAll,
+    }
+    //设置按下状态下背景
+    ControlPushedBackdrop "Demo_ButtonPushedBack",
+	Frame "Backdrop" "Demo_ButtonPushedBack" {
+        BackdropBackground  "ReplaceableTextures\CommandButtonsDisabled\DISBTN3M1.blp",
+        BackdropBlendAll,
+    }
+    //悬停鼠标高亮
+	ControlMouseOverHighlight "Demo_ButtonHig",
+	Frame "HIGHLIGHT" "Demo_ButtonHig" {
+        HighlightType "FILETEXTURE",
+        HighlightAlphaFile "UI\Widgets\EscMenu\Human\quest-button-highlight.blp",
+        HighlightAlphaMode "ADD",
+    }
+    //文本
+    ButtonText "Demo_ButtonText",
+	Frame "TEXT" "Demo_ButtonText"{
+        DecorateFileNames,
+        FrameFont "MasterFont", 0.015, "",
+        //设置文本对齐右下
+        FontJustificationH JUSTIFYRIGHT,
+        FontJustificationV JUSTIFYBOTTOM,    
+        FontFlags "FIXEDSIZE",
+        FontColor 1.0 1.0 1.0 1.0,
+        FontHighlightColor 1.0 1.0 1.0 1.0,
+        FontDisabledColor 0.2 0.2 0.2 1.0,
+        FontShadowColor 0.0 0.0 0.0 0.9,	
+        FontShadowOffset 0.001 -0.001,	
+        Text "W",
+    }
+}
+//创建一个聊天输入框
+Frame "EDITBOX" "Demo_EditBox" 
+{
+    Width 0.18,
+    Height 0.04,
+    EditBorderSize 0.007,
+    EditCursorColor 1.0 1.0 1.0,
+
+    ControlBackdrop "Demo_EditBoxBack",
+    Frame "BACKDROP" "Demo_EditBoxBack" {
+        BackdropTileBackground,
+        BackdropBackground  "UI\Widgets\BattleNet\bnet-inputbox-back.blp",
+        BackdropCornerFlags "UL|UR|BL|BR|T|L|B|R",
+        BackdropCornerSize  0.032,
+        BackdropBackgroundInsets 0.004 0.004 0.004 0.004,
+        BackdropEdgeFile  "UI\Widgets\BattleNet\bnet-inputbox-border.blp",
+        BackdropBlendAll,
+    }
+}
+//创建一个2d模型
+Frame "SPRITE" "Demo_Sprite"
+{
+     BackgroundArt "UI\Glues\BattleNet\ProgressBar\BattlenetProgressBar.mdl",
+}
+//创建一个水平滚动条
+Frame "SLIDER" "Demo_Slider" {
+    Height 0.01,
+    Width 0.23725,
+
+    SliderMinValue 0,
+    SliderMaxValue 1,
+    SliderInitialValue 0,
+    SliderStepSize 0.01,
+    SliderLayoutHorizontal, //SliderLayoutVertical 设置为垂直滚动条
+
+    //设置滚动条背景
+    ControlBackdrop "Demo_SliderBackdrop",
+    Frame "BACKDROP" "Demo_SliderBackdrop" {
+        BackdropTileBackground,
+        BackdropBackground  "UI\Widgets\Glues\GlueScreen-Slider-BackdropBackground.blp",
+        BackdropCornerFlags "UL|UR|BL|BR|T|L|B|R",
+        BackdropCornerSize  0.008,
+        BackdropBackgroundInsets 0.004 0.004 0.004 0.004,
+        BackdropEdgeFile  "UI\Widgets\Glues\GlueScreen-Slider-BackdropBorder.blp",
+        BackdropBlendAll,
+    }
+    //设置滚动条按钮
+    SliderThumbButtonFrame "DemoSlider_Button",
+    Frame "BUTTON" "DemoSlider_Button" {
+        Width 0.016,
+        Height 0.016,
+
+        ControlBackdrop "DemoSlider_ButtonBackdrop",
+        Frame "BACKDROP" "DemoSlider_ButtonBackdrop" {
+            BackdropBlendAll,
+            BackdropBackground  "UI\Widgets\Glues\SinglePlayerSkirmish-ScrollBarKnob.blp",
+        }
+
+        ControlDisabledBackdrop "DemoSlider_ButtonDisabledBackdrop",
+        Frame "BACKDROP" "DemoSlider_ButtonDisabledBackdrop" {
+            BackdropBlendAll,
+            BackdropBackground  "UI\Widgets\Glues\SinglePlayerSkirmish-ScrollBarKnobDisabled.blp",
+        }
+    }
+}
+//tips模板 背景模板
+Frame "BACKDROP" "Demo_TipsBck"
+{
+    BackdropTileBackground,
+    BackdropBackground  "UI\Widgets\ToolTips\Human\human-tooltip-background.blp",
+    BackdropBlendAll,
+}
