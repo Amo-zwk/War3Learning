@@ -49,11 +49,11 @@ end
 ---@param nesting number | nil 输出时的嵌套层级，默认为 10
 function dump(value, description, nesting)
     if type(nesting) ~= "number" then nesting = 10 end
-    local lookup = {}
-    local result = {}
+    local lookup  = {}
+    local result  = {}
     -- local traceback = string.explode("\n", debug.traceback("", 2))
     -- local str = "- dump from: " .. string.trim(traceback[3])
-    local str  = "";
+    local str     = "";
     local _format = function(v)
         if type(v) == "string" then
             v = "\"" .. v .. "\""
@@ -61,7 +61,7 @@ function dump(value, description, nesting)
         return tostring(v)
     end
     local _dump
-    _dump = function(val, desc, indent, nest, keyLen)
+    _dump         = function(val, desc, indent, nest, keyLen)
         desc = desc or "<var>"
         local spc = ""
         if type(keyLen) == "number" then
@@ -109,10 +109,10 @@ function dump(value, description, nesting)
     print(str)
 end
 
-function echo(player,msg)
+function echo(player, msg)
     _F.DisplayTimedTextToPlayer(
         player,
-        0,0,60,
+        0, 0, 60,
         msg
     )
 end
@@ -131,7 +131,7 @@ function err(val)
 end
 
 -- 字符串转id
-function char2id (idChar)
+function char2id(idChar)
     if (idChar == nil or type(idChar) ~= "string") then
         stack();
         return
@@ -167,6 +167,134 @@ _A = require "jass.globals"
 -- _S(LK)
 _S = require "jass.slk"
 
+-- UI
+_U = {
+    id = 0,
+    frameHandle = 0,
+    mainUi = _J.DzGetGameUI(),
+
+    -- 5步骤
+    toc = function(path)
+        _J.DzLoadToc(path)
+        return _U
+    end,
+    -- 1 创建 纯代码创建ui 无法读取子Frame
+    createTag = function(type, template, parent)
+        local parent = parent or _U.mainUi;
+        -- name
+        _U.id = _U.id + 1
+        local name = "ui" .. _U.id
+
+        _U.frameHandle = _J.DzCreateFrameByTagName(
+            type,
+            name,
+            parent,
+            template,
+            _U.id
+        )
+        return _U
+    end,
+    -- 2 定位
+    position = function(x, y, point)
+        if (_U.frameHandle > 0) then
+            local point = point or _C.FRAME_ALIGN_CENTER
+            _J.DzFrameSetAbsolutePoint(
+                _U.frameHandle,
+                point,
+                x, y
+            )
+        end
+        return _U
+
+    end,
+    -- 3 宽高
+    size = function(w, h)
+        if _U.frameHandle > 0 then
+            _J.DzFrameSetSize(_U.frameHandle, w, h)
+        end
+        return _U
+
+    end,
+    -- 4 内容
+    text = function(text)
+        if _U.frameHandle > 0 then
+            _J.DzFrameSetText(_U.frameHandle, text)
+        end
+        return _U
+
+    end,
+    img = function(path, flag)
+        if _U.frameHandle > 0 then
+            -- 0 拉伸  缩放适应
+            -- 1 平铺  重复平铺
+            local flag = flag or 1
+            _J.DzFrameSetTexture(
+                _U.frameHandle,
+                path,
+                flag
+            )
+        end
+        return _U
+
+    end,
+    -- 5 事件
+    on = function(evt, action, sync)
+        if (_U.frameHandle > 0) then
+            local sync = sync or false
+            _J.DzFrameSetScriptByCode(
+                _U.frameHandle,
+                evt,
+                action,
+                sync
+            )
+        end
+        return _U
+
+    end,
+    show = function()
+        if _U.frameHandle > 0 then
+            _J.DzFrameShow(_U.frameHandle, true)
+        end
+
+        return _U
+
+    end,
+    hide = function()
+        if _U.frameHandle > 0 then
+            _J.DzFrameShow(_U.frameHandle, false)
+        end
+
+        return _U
+    end,
+    -- 创建FDF中定义的frame 可以读取子Frame(重点)
+    create = function(name,id,parent)
+
+        local parent = parent or _U.mainUi;
+        local id = id or _U.id + 1
+
+        print(name,id)
+
+        _U.frameHandle = _J.DzCreateFrame(
+            name,
+            parent,
+            id
+        )
+        return _U
+    end,
+
+    -- 查找子Frame
+    find = function (name,id)
+        local frame = _J.DzFrameFindByName(name,id);
+        if frame then
+            _U.frameHandle = frame
+        else
+            dump(frame,"_U.find error")
+        end
+
+        return _U
+    end,
+
+}
 
 -- dump(_F,"_F")
 
@@ -208,4 +336,12 @@ require "demo.ui"
 -- uiDemo2()
 -- uiDemo3()
 -- uiDemo4()
-uiDemo5()
+-- uiDemo5()
+
+
+require "demo.fdf"
+-- FDF_bg1()
+-- FDF_txt1()
+-- FDF_Btn()
+-- FDF_Frame()
+FDF_RG()

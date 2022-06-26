@@ -1,0 +1,240 @@
+// BackDrop
+// 包含2部分 背景图片与边框图片 无法触发点击事件
+Frame "BACKDROP" "BgDemo" {
+    Width 0.1,
+    Height 0.1,
+
+    // // 贴图模式 重复填充
+    // BackdropTileBackground,
+    // // 每个贴图的大小
+    // BackdropBackgroundSize 0.05,
+
+    // 设置背景图片
+    BackdropBackground "ReplaceableTextures\TeamColor\TeamColor07.blp",
+
+
+    // 边框图片的设置
+    // 1 设置显示的边框 上下左右和4个角
+    // BackdropCornerFlags "T|L|R|B",
+    BackdropCornerFlags "T|L|R|B|UL|UR|BL|BR",
+
+    // 2 设置边框宽度 默认0.25
+    BackdropCornerSize 0.006,
+
+    // 3 设置边框文件
+    // 分别设置边框图片文件
+    // BackdropTopFile "ReplaceableTextures\TeamColor\TeamColor01.blp",
+    // BackdropLeftFile "ReplaceableTextures\TeamColor\TeamColor02.blp",
+    // BackdropBottomFile "ReplaceableTextures\TeamColor\TeamColor03.blp",
+    // BackdropRightFile "ReplaceableTextures\TeamColor\TeamColor04.blp",
+    // 分别设置边角文件
+    // BackdropCornerFile "ReplaceableTextures\TeamColor\TeamColor05.blp",
+
+
+    // 同一的边框 4个边框和边角使用同一个文件
+    BackdropEdgeFile "ReplaceableTextures\TeamColor\TeamColor06.blp",
+
+    // 设置背景图片的内边距 (背景图片距离边框外边缘的距离) 上 右 下 左
+    BackdropBackgroundInsets 0.004f 0.006f 0.008f 0.014f,
+}
+
+Frame "TEXT" "txtDemo" {
+    Width 0.1,
+    Height 0.1,
+
+    Text "文本框demo",
+}
+
+
+// Btn 包含图文和文字的按钮 可以触发点击事件
+// Frame "BUTTON" "BtnDemo" {
+Frame "GLUEBUTTON" "BtnDemo" {
+    Width 0.1,
+    Height 0.1,
+
+    // 设置按钮背景图片
+    ControlBackdrop "BtnBg",
+    Frame "BACKDROP" "BtnBg" {
+        BackdropBackground "ReplaceableTextures\TeamColor\TeamColor07.blp",
+    }
+}
+
+// 带文字的按钮
+// Frame "TEXTBUTTON" "TextBtnDemo" {
+Frame "GLUETEXTBUTTON" "TextBtnDemo" {
+
+    Width 0.1,
+    Height 0.1,
+
+    // 设置按钮背景图片
+    ControlBackdrop "BtnBg",
+    Frame "BACKDROP" "BtnBg" {
+        BackdropBackground "ReplaceableTextures\TeamColor\TeamColor07.blp",
+    }
+
+    // 按钮点击状态下背景图片
+    ControlPushedBackdrop "Demo_ButtonPushedBack",
+	Frame "Backdrop" "Demo_ButtonPushedBack" {
+        BackdropBackground  "ReplaceableTextures\CommandButtonsDisabled\DISBTN3M1.blp",
+    }
+    // 按钮禁用状态下背景图片  不清楚怎么触发禁用状态 没法演示
+    ControlDisabledBackdrop "Demo_ButtonDisBack",
+    Frame "BACKDROP" "Demo_ButtonDisBack" 
+    {
+        BackdropBackground  "ReplaceableTextures\PassiveButtons\PASBTNEnvenomedSpear.blp",
+    }
+    // 鼠标悬浮高亮图片
+    ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+    ControlMouseOverHighlight "Demo_ButtonHig",
+	Frame "HIGHLIGHT" "Demo_ButtonHig" {
+        HighlightType "FILETEXTURE",
+        HighlightAlphaFile "UI\Widgets\EscMenu\Human\quest-button-highlight.blp",
+        HighlightAlphaMode "ADD",
+    }
+
+    // 设置按钮文字
+    ButtonText "BtnText",
+	Frame "TEXT" "BtnText"{
+        // 开启字符串文件名查找
+        DecorateFileNames,
+        // 文本的字体 大小
+        FrameFont "MasterFont", 0.03, "",
+
+        // //设置文本对齐右下
+        FontJustificationH JUSTIFYCENTER,
+        FontJustificationV JUSTIFYMIDDLE, 
+
+        // 设置字体颜色 RGBA 红绿蓝透明度
+        FontColor 1.0 1.0 0.0 1.0,
+
+        // 字体样式 FIXEDSIZE 默认文本显示
+        // PASSWORDFIELD  密码样式 *
+        // FontFlags "PASSWORDFIELD",
+
+        FontHighlightColor 0.0 1.0 1.0 1.0,
+        FontDisabledColor 0.2 0.2 0.2 1.0,
+        FontShadowColor 0.1 0.0 0.0 0.9,	
+        FontShadowOffset 0.001 -0.001,
+        Text "W",
+    }
+}
+
+
+// 自定义UI
+// 背景图 2个文本
+Frame "FRAME" "FrameDemo" {
+    Width 0.17f,
+    Height 0.03f,
+
+    // 背景图片
+    Frame "BACKDROP" "TimerDialogBackdrop" {
+        // 使用当前上下文  子Frame显示到当前付父节点上面
+        UseActiveContext,
+
+        // 使用父节点的位置信息
+        SetAllPoints,
+
+        BackdropTileBackground,
+        BackdropBackground          "ReplaceableTextures\TeamColor\TeamColor06.blp",
+        BackdropCornerFlags         "UL|UR|BL|BR|T|L|B|R",
+        BackdropCornerSize          0.0125,
+        BackdropBackgroundInsets    0.001f 0.001f 0.001f 0.001f,
+        BackdropEdgeFile            "ReplaceableTextures\TeamColor\TeamColor02.blp",
+	    BackdropBlendAll,
+    }
+
+    // 自定义文本
+    Frame "TEXT" "TimerDialogValue"  {
+        UseActiveContext,
+        // 设置文本的位置信息
+        SetPoint RIGHT, "TimerDialogBackdrop",  RIGHT,  -0.01, 0.0,
+
+        Width 0.06,
+        FontJustificationH JUSTIFYRIGHT,
+        Text "00:00:00",
+    }
+
+    Frame "TEXT" "TimerDialogTitle"  {
+        UseActiveContext,
+        // 设置文本的位置信息
+        SetPoint LEFT,  "TimerDialogBackdrop", LEFT,   0.01, 0.0,
+
+        FontJustificationH JUSTIFYLEFT,
+        Text "我的时间",
+    }
+}
+
+
+// RougeUI
+// RougeItem
+Frame "FRAME" "RougeItem" {
+    Width 0.14,
+    Height 0.28,
+
+    // 大背景图片与边框
+    Frame "BACKDROP" "RgBg"{
+        UseActiveContext,
+        SetAllPoints,
+
+        BackdropTileBackground,
+        BackdropBackground          "UI\Widgets\ToolTips\Human\human-tooltip-background.blp",
+        BackdropCornerFlags         "UL|UR|BL|BR|T|L|B|R",
+        BackdropCornerSize          0.001,
+        BackdropEdgeFile            "ReplaceableTextures\TeamColor\TeamColor02.blp",
+	    BackdropBlendAll,
+    }
+
+    // Icon
+    Frame "BACKDROP" "RgIcon"{
+        Width 0.05,
+        Height 0.05,
+        
+        UseActiveContext,
+        // 设置位置信息 当前Frame的Point 参考Frame的名称,参考Frame的Point ,xOffset,yOffset
+        SetPoint BOTTOM, "RgBg", CENTER,  0.0, 0.02,
+         
+        BackdropBackground "ReplaceableTextures\CommandButtons\BTNFootman.blp",
+    }
+    // Text
+    Frame "TEXT" "RgText"{
+        Width 0.12,
+
+        UseActiveContext,
+        SetPoint TOP, "RgBg",  CENTER,  0.0, -0.02,
+
+        FontJustificationV JUSTIFYBOTTOM,
+        FontJustificationH JUSTIFYCENTER,
+        Text "技能描述技能描述技能描述技能描述技能描述技能描述",
+    }
+}
+
+// RougeBtn
+
+Frame "TEXTBUTTON" "RougeBtn" {
+    Width  0.04,
+    Height 0.03,
+
+    //设置正常状态背景
+    ControlBackdrop "RougeBtnBg",
+    Frame "BACKDROP" "RougeBtnBg"
+    {
+        BackdropTileBackground,
+        BackdropBackground          "UI\Widgets\ToolTips\Human\human-tooltip-background.blp",
+        BackdropCornerFlags         "UL|UR|BL|BR|T|L|B|R",
+        BackdropCornerSize          0.001,
+        BackdropEdgeFile            "ReplaceableTextures\TeamColor\TeamColor02.blp",
+	    BackdropBlendAll,
+    }
+    //文本
+    ButtonText "RougeBtnDetail",
+	Frame "TEXT" "RougeBtnDetail"{
+        DecorateFileNames,
+        FrameFont "MasterFont", 0.01, "",
+        //设置文本对齐右下
+        FontJustificationH JUSTIFYCENTER,
+        FontJustificationV JUSTIFYMIDDLE,    
+        FontFlags "FIXEDSIZE",
+        FontColor 1.0 1.0 1.0 1.0,
+        Text "刷新",
+    }
+}
