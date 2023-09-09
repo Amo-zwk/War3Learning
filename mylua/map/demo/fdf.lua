@@ -123,7 +123,7 @@ function FDF_RG()
 
 
     _U.create("RougeBtn")
-        .position(0.75, 0.3)
+        .position(0.75)
         .on(_C.MOUSE_ORDER_CLICK, function()
             echo(_F.GetLocalPlayer(), "点击")
             setData()

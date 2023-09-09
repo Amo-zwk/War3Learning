@@ -344,4 +344,9 @@ require "demo.fdf"
 -- FDF_txt1()
 -- FDF_Btn()
 -- FDF_Frame()
-FDF_RG()
+-- FDF_RG()
+
+-- 
+require 'demo.hotfix'
+
+RegHot()

@@ -5,7 +5,7 @@ function UnitDemo1()
     local commonUnit = _F.CreateUnit(player,char2id("Nbbc"),0,0,270)
 
     local enemyPlayer = _F.Player(1);
-    local enemyUnit =  _F.CreateUnit(enemyPlayer,char2id("hpea"),0,0,270)
+    local enemyUnit =  _F.CreateUnit(enemyPlayer,char2id("hpea"),10,10,270)
 end
 
 function UnitDemo2()
