@@ -349,4 +349,8 @@ require "demo.fdf"
 -- 
 require 'demo.hotfix'
 
-RegHot()
+-- RegHot()
+
+-- RegHot "demo.a"
+
+RegHotStage "demo.b"
