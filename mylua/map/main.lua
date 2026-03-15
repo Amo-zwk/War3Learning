@@ -330,6 +330,9 @@ require "demo.trigger"
 -- triggerDemo4()
 -- triggerDemo5()
 
+local sky_rift_waltz = require "skill.sky_rift_waltz"
+sky_rift_waltz.init()
+
 
 require "demo.ui"
 -- uiDemo1()
