@@ -8,6 +8,7 @@ Stage.onStart = function()
     local player = _F.Player(0);
     local enemyPlayer = _F.Player(1);
     local hero = _F.CreateUnit(player, char2id("A000"), 0, 0, 270)
+    _F.SetHeroLevel(hero, 2, false)
     local enemy1 = _F.CreateUnit(enemyPlayer, char2id("ogru"), 280, 0, 180)
     local enemy2 = _F.CreateUnit(enemyPlayer, char2id("ogru"), 360, 120, 180)
     local enemy3 = _F.CreateUnit(enemyPlayer, char2id("ogru"), 360, -120, 180)
