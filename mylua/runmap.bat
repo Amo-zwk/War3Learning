@@ -2,7 +2,7 @@
 setlocal
 
 set SCRIPT_DIR=%~dp0
-set DEFAULT_SDK=%SCRIPT_DIR%..\..\h-lua-sdk
+set DEFAULT_SDK=%SCRIPT_DIR%..\h-lua-sdk
 
 if "%H_LUA_SDK%"=="" (
     set H_LUA_SDK=%DEFAULT_SDK%

@@ -7,29 +7,25 @@
 
 本项目适合在 Windows + Warcraft III 1.27 + YDWE + w3x2lni 环境下运行。
 
+当前仓库已经内置 `h-lua-sdk`，你不需要再单独下载一份 SDK。
+
 ### 1. 准备工具
 
 先准备以下内容：
 
 1. Warcraft III 1.27 客户端
-2. `h-lua-sdk`
-3. YDWE
-4. w3x2lni
+2. Git for Windows
 
-注意：`h-lua-sdk` 不在本仓库里，需要你单独下载。
-
-推荐下载地址：
-
-- `https://gitee.com/zmwcodediy/h-lua-sdk`
-
-如果你直接使用本仓库配套的目录结构，`h-lua-sdk` 与 `map-luamaker` 放在同一级目录即可。
+仓库内已经包含 `h-lua-sdk`、YDWE 和 w3x2lni 相关文件。
 
 推荐目录结构：
 
 ```text
-your-workspace/
-  h-lua-sdk/
-  map-luamaker/
+D:\War3Learning\
+  h-lua-sdk\
+  mylua\
+  mylua.w3x
+  README.md
 ```
 
 如果你的项目目录是：
@@ -41,14 +37,12 @@ D:\War3Learning\mylua
 那么脚本默认会去查找：
 
 ```text
-D:\h-lua-sdk
+D:\War3Learning\h-lua-sdk
 ```
 
-所以最省事的放法就是把 `h-lua-sdk` 放到：
+所以当前仓库完整拉下来后，默认目录结构就是可用的，不需要额外移动 SDK。
 
-```text
-D:\h-lua-sdk
-```
+只有当你把 `h-lua-sdk` 挪到别的位置时，才需要额外设置环境变量。
 
 ### 2. 下载仓库
 
@@ -72,6 +66,13 @@ cd War3Learning
 git pull
 ```
 
+克隆完成后，你应该能看到：
+
+```text
+War3Learning\h-lua-sdk
+War3Learning\mylua
+```
+
 ### 3. 配置 Warcraft 路径
 
 打开 `YDWEConfig.exe`，先配置好 Warcraft III 客户端路径。
@@ -87,7 +88,7 @@ git pull
 - 如果你没有设置 `H_LUA_SDK`，它会默认查找：
 
 ```text
-..\..\h-lua-sdk
+..\h-lua-sdk
 ```
 
 - 如果你的 `h-lua-sdk` 不在默认位置，请先在命令行设置：
