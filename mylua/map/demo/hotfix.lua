@@ -11,6 +11,18 @@ local function normalize_path(path)
 end
 
 local function setup_hotdemo_path()
+    local relative_roots = {
+        "hotdemo",
+        "../hotdemo",
+        "../../hotdemo",
+        "../../../hotdemo",
+    }
+
+    for _, root in ipairs(relative_roots) do
+        append_package_path(root .. "/?.lua")
+        append_package_path(root .. "/?/init.lua")
+    end
+
     local source = debug.getinfo(1, "S").source
     if not source or source:sub(1, 1) ~= "@" then
         return
