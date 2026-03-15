@@ -18,7 +18,8 @@ Stage.onStart = function()
     Stage.actors["enemy2"] = enemy2
     Stage.actors["enemy3"] = enemy3
 
-    _F.SelectUnitForPlayerSingle(hero, player)
+    _F.ClearSelection()
+    _F.SelectUnit(hero, true)
 end
 
 Stage.onStop = function()
