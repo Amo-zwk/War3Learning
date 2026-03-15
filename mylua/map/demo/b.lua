@@ -4,7 +4,7 @@ local Stage = {
 
 Stage.onStart = function()
     print("演员上台")
-    local player = _F.GetLocalPlayer()
+    local player = _F.Player(0)
     local enemy_player = _F.Player(1)
     local hero = _F.CreateUnit(player, char2id("A000"), 0, 0, 270)
     local enemy1 = _F.CreateUnit(enemy_player, char2id("ogru"), 280, 0, 180)
