@@ -16,6 +16,12 @@
 3. YDWE
 4. w3x2lni
 
+注意：`h-lua-sdk` 不在本仓库里，需要你单独下载。
+
+推荐下载地址：
+
+- `https://gitee.com/zmwcodediy/h-lua-sdk`
+
 如果你直接使用本仓库配套的目录结构，`h-lua-sdk` 与 `map-luamaker` 放在同一级目录即可。
 
 推荐目录结构：
@@ -24,6 +30,24 @@
 your-workspace/
   h-lua-sdk/
   map-luamaker/
+```
+
+如果你的项目目录是：
+
+```text
+D:\War3Learning\mylua
+```
+
+那么脚本默认会去查找：
+
+```text
+D:\h-lua-sdk
+```
+
+所以最省事的放法就是把 `h-lua-sdk` 放到：
+
+```text
+D:\h-lua-sdk
 ```
 
 ### 2. 下载仓库
@@ -75,6 +99,19 @@ set H_LUA_SDK=D:\your-path\h-lua-sdk
 然后再运行：
 
 ```bat
+mylua\runmap.bat
+```
+
+例如你的 `h-lua-sdk` 如果放在：
+
+```text
+D:\tools\h-lua-sdk
+```
+
+那么可以这样运行：
+
+```bat
+set H_LUA_SDK=D:\tools\h-lua-sdk
 mylua\runmap.bat
 ```
 
