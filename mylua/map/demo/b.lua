@@ -4,12 +4,11 @@ local Stage = {
 
 Stage.onStart = function()
     print("演员上台")
-    local skill_id = char2id("C001")
     local player = _F.Player(0)
     local enemy_player = _F.Player(1)
     local hero = _F.CreateUnit(player, char2id("A000"), 0, 0, 270)
-    _F.UnitAddAbility(hero, skill_id)
     _F.SetHeroLevel(hero, 2, false)
+    _F.SelectHeroSkill(hero, char2id("C001"))
     local enemy1 = _F.CreateUnit(enemy_player, char2id("ogru"), 280, 0, 180)
     local enemy2 = _F.CreateUnit(enemy_player, char2id("ogru"), 360, 120, 180)
     local enemy3 = _F.CreateUnit(enemy_player, char2id("ogru"), 360, -120, 180)
