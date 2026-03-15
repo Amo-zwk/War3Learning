@@ -26,19 +26,33 @@ your-workspace/
   map-luamaker/
 ```
 
-### 2. 配置 Warcraft 路径
+### 2. 下载仓库
 
-打开 `YDWEConfig.exe`，先配置好 Warcraft III 客户端路径。
+如果你还没有把仓库下载到 Windows，本项目建议直接用 Git 克隆。
 
-如果这一步没做好，后面运行脚本时无法自动拉起游戏。
+先安装 Git for Windows，然后在你要存放项目的目录打开命令行，执行：
 
-### 3. 拉取项目
+```bash
+git clone https://github.com/Amo-zwk/War3Learning.git
+```
 
-在 Windows 上进入你的仓库目录后执行：
+进入项目目录：
+
+```bash
+cd War3Learning
+```
+
+如果你后续已经下载过一次，只需要更新到最新版本：
 
 ```bash
 git pull
 ```
+
+### 3. 配置 Warcraft 路径
+
+打开 `YDWEConfig.exe`，先配置好 Warcraft III 客户端路径。
+
+如果这一步没做好，后面运行脚本时无法自动拉起游戏。
 
 ### 4. 检查 SDK 路径
 
