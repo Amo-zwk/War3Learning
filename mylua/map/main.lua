@@ -366,6 +366,9 @@ regal_legion_tide.init()
 local necropolis_funeral_march = require "skill.necropolis_funeral_march"
 necropolis_funeral_march.init()
 
+local beast_tide_hunt_decree = require "skill.beast_tide_hunt_decree"
+beast_tide_hunt_decree.init()
+
 
 require "demo.ui"
 -- uiDemo1()
