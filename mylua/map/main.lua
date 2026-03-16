@@ -369,6 +369,9 @@ necropolis_funeral_march.init()
 local beast_tide_hunt_decree = require "skill.beast_tide_hunt_decree"
 beast_tide_hunt_decree.init()
 
+local tidebound_procession = require "skill.tidebound_procession"
+tidebound_procession.init()
+
 
 require "demo.ui"
 -- uiDemo1()
