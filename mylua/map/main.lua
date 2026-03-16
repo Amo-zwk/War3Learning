@@ -357,6 +357,9 @@ monolith_execution_court.init()
 local mirror_grand_hunt = require "skill.mirror_grand_hunt"
 mirror_grand_hunt.init()
 
+local solar_judgment_lattice = require "skill.solar_judgment_lattice"
+solar_judgment_lattice.init()
+
 
 require "demo.ui"
 -- uiDemo1()
