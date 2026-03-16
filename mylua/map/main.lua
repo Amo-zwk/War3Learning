@@ -336,6 +336,9 @@ sky_rift_waltz.init()
 local starfall_breach = require "skill.starfall_breach"
 starfall_breach.init()
 
+local moonshatter_tempest = require "skill.moonshatter_tempest"
+moonshatter_tempest.init()
+
 
 require "demo.ui"
 -- uiDemo1()
