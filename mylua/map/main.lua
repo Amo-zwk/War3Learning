@@ -351,6 +351,9 @@ scarlet_curtain_finale.init()
 local abyssal_maw_decree = require "skill.abyssal_maw_decree"
 abyssal_maw_decree.init()
 
+local monolith_execution_court = require "skill.monolith_execution_court"
+monolith_execution_court.init()
+
 
 require "demo.ui"
 -- uiDemo1()
