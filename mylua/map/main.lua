@@ -360,6 +360,9 @@ mirror_grand_hunt.init()
 local solar_judgment_lattice = require "skill.solar_judgment_lattice"
 solar_judgment_lattice.init()
 
+local regal_legion_tide = require "skill.regal_legion_tide"
+regal_legion_tide.init()
+
 
 require "demo.ui"
 -- uiDemo1()
