@@ -354,6 +354,9 @@ abyssal_maw_decree.init()
 local monolith_execution_court = require "skill.monolith_execution_court"
 monolith_execution_court.init()
 
+local mirror_grand_hunt = require "skill.mirror_grand_hunt"
+mirror_grand_hunt.init()
+
 
 require "demo.ui"
 -- uiDemo1()
