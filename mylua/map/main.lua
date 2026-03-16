@@ -339,6 +339,9 @@ starfall_breach.init()
 local moonshatter_tempest = require "skill.moonshatter_tempest"
 moonshatter_tempest.init()
 
+local eclipse_cataclysm_rite = require "skill.eclipse_cataclysm_rite"
+eclipse_cataclysm_rite.init()
+
 
 require "demo.ui"
 -- uiDemo1()
