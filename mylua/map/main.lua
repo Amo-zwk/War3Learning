@@ -342,6 +342,9 @@ moonshatter_tempest.init()
 local eclipse_cataclysm_rite = require "skill.eclipse_cataclysm_rite"
 eclipse_cataclysm_rite.init()
 
+local chrono_singularity_throne = require "skill.chrono_singularity_throne"
+chrono_singularity_throne.init()
+
 
 require "demo.ui"
 -- uiDemo1()
