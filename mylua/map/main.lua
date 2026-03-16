@@ -348,6 +348,9 @@ chrono_singularity_throne.init()
 local scarlet_curtain_finale = require "skill.scarlet_curtain_finale"
 scarlet_curtain_finale.init()
 
+local abyssal_maw_decree = require "skill.abyssal_maw_decree"
+abyssal_maw_decree.init()
+
 
 require "demo.ui"
 -- uiDemo1()
