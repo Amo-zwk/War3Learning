@@ -363,6 +363,9 @@ solar_judgment_lattice.init()
 local regal_legion_tide = require "skill.regal_legion_tide"
 regal_legion_tide.init()
 
+local necropolis_funeral_march = require "skill.necropolis_funeral_march"
+necropolis_funeral_march.init()
+
 
 require "demo.ui"
 -- uiDemo1()
