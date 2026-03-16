@@ -345,6 +345,9 @@ eclipse_cataclysm_rite.init()
 local chrono_singularity_throne = require "skill.chrono_singularity_throne"
 chrono_singularity_throne.init()
 
+local scarlet_curtain_finale = require "skill.scarlet_curtain_finale"
+scarlet_curtain_finale.init()
+
 
 require "demo.ui"
 -- uiDemo1()
