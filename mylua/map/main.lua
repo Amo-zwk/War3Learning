@@ -333,6 +333,9 @@ require "demo.trigger"
 local sky_rift_waltz = require "skill.sky_rift_waltz"
 sky_rift_waltz.init()
 
+local starfall_breach = require "skill.starfall_breach"
+starfall_breach.init()
+
 
 require "demo.ui"
 -- uiDemo1()
