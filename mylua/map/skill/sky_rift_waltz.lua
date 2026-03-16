@@ -3,7 +3,7 @@ local sky_rift_waltz = {}
 local DAMAGE = 300 -- You may change this damage value only.
 
 local ABILITY_ID = char2id("C001")
-local DUMMY_UNIT_ID = char2id("U002")
+local DUMMY_UNIT_ID = char2id("u002")
 
 local DASH_DISTANCE = 420.0
 local DASH_STEPS = 10

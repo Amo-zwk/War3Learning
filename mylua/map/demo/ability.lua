@@ -24,8 +24,7 @@ end
 function abilitDemo3()
     local p = _F.Player(0);
     -- 通过物编附加技能
-    local u = _F.CreateUnit(p,char2id("A001"),0,0,270)
+    local u = _F.CreateUnit(p,char2id("u001"),0,0,270)
 end
-
 
 
